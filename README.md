@@ -1,7 +1,3 @@
-Berikut deskripsi yang bisa kamu gunakan untuk repositori GitHub:  
-
----  
-
 # **Auth UI Design with Shield & OAuth - CodeIgniter 4**  
 
 📌 **Deskripsi**  
