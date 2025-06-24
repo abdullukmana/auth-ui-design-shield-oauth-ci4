@@ -1,16 +1,38 @@
-# Menambahkan UI Authentication dengan Shield & Shield OAuth di CodeIgniter 4  
+# Menambahkan UI Authentication dengan Shield & Shield OAuth di CodeIgniter 4
 
-## Prasyarat  
-Pastikan proyek Anda menggunakan **CodeIgniter 4** serta telah menginstal **Shield** dan **Shield OAuth** sebagai library autentikasi.  
+## Prasyarat
 
-## Langkah-langkah  
+Pastikan proyek Anda menggunakan **CodeIgniter 4**, serta telah menginstal:
 
-### 1. Menambahkan Tampilan UI Autentikasi  
-- Unduh folder `auth` dari repositori.  
-- Pindahkan folder `auth` ke dalam folder `app/Views/` di proyek Anda.  
+* [**Shield**](https://github.com/codeigniter4/shield) sebagai sistem autentikasi.
+* [**Shield OAuth**](https://github.com/codeigniter4/shield-oauth) sebagai tambahan autentikasi berbasis OAuth.
 
-### 2. Konfigurasi Tampilan Autentikasi  
-Ubah nilai array pada file `app/Config/Auth.php` untuk menyesuaikan tampilan dengan UI baru:  
+## Langkah-langkah
+
+### 1. Menambahkan Tampilan UI Autentikasi
+
+* Unduh folder `auth` dari repositori (bisa dari template yang disediakan atau buatan sendiri).
+* Pindahkan folder `auth` ke dalam direktori `app/Views/` proyek Anda.
+
+Struktur direktori Anda seharusnya menjadi seperti berikut:
+
+```
+app/
+└── Views/
+    └── auth/
+        ├── login.php
+        ├── register.php
+        ├── email_2fa_show.php
+        ├── email_2fa_verify.php
+        ├── email_activate_show.php
+        ├── magic_link_form.php
+        ├── magic_link_message.php
+        └── ...
+```
+
+### 2. Konfigurasi Tampilan Autentikasi
+
+Edit file `app/Config/Auth.php` pada properti `$views` agar sesuai dengan tampilan UI yang Anda tambahkan:
 
 ```php
 public array $views = [
@@ -26,3 +48,11 @@ public array $views = [
     'magic-link-message'          => '\App\Views\auth\magic_link_message',
     'magic-link-email'            => '\CodeIgniter\Shield\Views\Email\magic_link_email',
 ];
+```
+
+### 3. Menambahkan File Bahasa
+
+Pastikan Anda juga menambahkan file bahasa berikut:
+
+* Salin file `Auth.php` dari folder `Language/en/` (jika Anda membuat kostumisasi) ke `app/Language/en/Auth.php`.
+* Anda bisa menyesuaikan teks dan pesan autentikasi yang ditampilkan pada UI.
